@@ -1,0 +1,351 @@
+@mixin ib {
+   display: inline-block;
+   vertical-align: top;
+}
+
+@mixin link {
+   &,
+   &:hover,
+   &:active,
+   &:visited,
+   &:focus {
+      @content;
+   }
+}
+
+@mixin link-h {
+   &:hover,
+   &:active,
+   &:focus {
+      @content;
+   }
+}
+
+@mixin link-v {
+   &,
+   &:visited {
+      @content;
+   }
+}
+
+@mixin mmax($width, $height: 0) {
+   $w: $width + px;
+   $h: $height + px;
+
+   @if $height == 0 {
+      @media all and (max-width: $w) {
+         @content;
+      }
+   } @else {
+      @media all and (max-width: $w) and (max-height: $h) {
+         @content;
+      }
+   }
+}
+
+@mixin mmax-h($height) {
+   $h: $height + px;
+
+   @media all and (max-height: $h) {
+      @content;
+   }
+}
+
+@mixin mmax-landscape($width, $height: 0) {
+   $w: $width + px;
+   $h: $height + px;
+
+   @if $h = 0 {
+      @media all and (max-width: $w) and (orientation: landscape) {
+         @content;
+      }
+   } @else {
+      @media all and (max-width: $w) and (max-height: $h) and (orientation: landscape) {
+         @content;
+      }
+   }
+}
+
+@mixin mmax-portrait($width, $height: 0) {
+   $w: $width + px;
+   $h: $height + px;
+
+   @if $h = 0 {
+      @media all and (max-width: $w) and (orientation: portrait) {
+         @content;
+      }
+   } @else {
+      @media all and (max-width: $w) and (max-height: $h) and (orientation: portrait) {
+         @content;
+      }
+   }
+}
+
+@mixin adapt-img {
+   max-width: 100%;
+   height: auto;
+}
+
+@mixin placeholder {
+   &::-webkit-input-placeholder {
+      @content;
+   }
+   &:-ms-input-placeholder {
+      @content;
+   }
+   &::-ms-input-placeholder {
+      @content;
+   }
+   &:-moz-placeholder {
+      @content;
+   }
+   &::-moz-placeholder {
+      @content;
+   }
+}
+
+@mixin no-select {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+@mixin select {
+   -webkit-user-select: text;
+   -moz-user-select: text;
+   -ms-user-select: text;
+}
+
+@mixin triangle($color, $size) {
+   @include ib;
+
+   border: $size / 2 + px solid transparent;
+   border-top-color: $color;
+   border-bottom: 0;
+
+   width: $size + px;
+   height: $size + px;
+}
+
+@mixin triangle-rev($color, $size) {
+   @include ib;
+
+   border: $size / 2 + px solid transparent;
+   border-bottom-color: $color;
+   border-top: 0;
+
+   width: $size + px;
+   height: $size + px;
+}
+
+@mixin triangle-right($color, $size) {
+   @include ib;
+
+   border: $size / 2 + px solid transparent;
+   border-left-color: $color;
+   border-right: 0;
+
+   width: $size + px;
+   height: $size + px;
+}
+
+@mixin container($mW) {
+   display: block;
+   margin: 0 auto;
+   max-width: $mW;
+   min-width: 320px;
+}
+
+@mixin full {
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+}
+
+@mixin full-abs {
+   position: absolute;
+   @include full;
+}
+
+@mixin full-fix {
+   position: fixed;
+   @include full;
+}
+
+@mixin full-rel {
+   position: relative;
+
+   width: 100%;
+   height: 100%;
+}
+
+@mixin va($is_block: 0) {
+   @if $is_block == 0 {
+      display: inline-flex;
+      vertical-align: top;
+   } @else {
+      display: flex;
+   }
+   flex-direction: column;
+   justify-content: center;
+}
+
+@mixin va-tb {
+   position: relative;
+
+   display: table;
+   vertical-align: middle;
+
+   width: 100%;
+}
+
+@mixin va-tc {
+   position: relative;
+
+   display: table-cell;
+   vertical-align: middle;
+}
+
+@mixin va-abs {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin flc {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+
+@mixin fl-row {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   justify-content: flex-start;
+}
+
+@mixin hide-play() {
+   &::-webkit-media-controls-panel {
+      display: none !important;
+      -webkit-appearance: none;
+   }
+
+   &::--webkit-media-controls-play-button {
+      display: none !important;
+      -webkit-appearance: none;
+   }
+
+   &::-webkit-media-controls-start-playback-button {
+      display: none !important;
+      -webkit-appearance: none;
+   }
+}
+
+@mixin ios-border-radius-null {
+   -webkit-appearance: none;
+   -webkit-border-radius: 0;
+   border-radius: 0;
+}
+
+@mixin sprite($animationName, $frames, $stepWidth) {
+   @keyframes #{$animationName} {
+      0% {
+         background-position: 0px 0;
+      }
+
+      100% {
+         background-position: -#{$frames * $stepWidth}px 0;
+      }
+   }
+}
+
+@mixin float-clear {
+   &:after {
+      content: "";
+
+      clear: both;
+
+      display: block;
+      margin-top: -1px;
+
+      width: 100%;
+      height: 1px;
+   }
+}
+
+@mixin reset-button() {
+   @include ib;
+
+   padding: 0;
+   margin: 0;
+   border: none;
+
+   font-family: inherit;
+   font-size: inherit;
+
+   background: transparent;
+   cursor: pointer;
+
+   &:focus {
+      outline: none;
+   }
+}
+
+@mixin icon($w, $h, $image) {
+   width: $w;
+   height: $h;
+
+   background: transparent i($image) center center no-repeat;
+   background-size: 100% auto;
+}
+
+@mixin full-reset($w: auto, $h: auto) {
+   position: static;
+   top: auto;
+   left: auto;
+   right: auto;
+   bottom: auto;
+   transform: none;
+
+   width: $w;
+   height: $h;
+}
+@mixin flc-start() {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+@mixin flc-end() {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+@mixin flc-center-center() {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+@mixin space-between {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+}
+@mixin font($font_name, $file_name, $weight, $style) {
+   @font-face {
+      font-family: $font_name;
+      font-display: swap;
+      src: url("../../fonts/#{$file_name}.woff") format("woff"), url("../../fonts/#{$file_name}.woff2") format("woff2");
+      font-weight: #{$weight};
+      font-style: #{$style};
+   }
+}

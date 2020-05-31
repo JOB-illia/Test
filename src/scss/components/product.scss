@@ -1,0 +1,127 @@
+.product {
+   position: relative;
+   margin-top: rem(73);
+   // .product__body
+
+   &__body {
+      @include container($wrap-content-mini);
+      padding: 0px rem(15);
+   }
+
+   // .product__row
+
+   &__row {
+      @include space-between();
+
+   }
+
+   // .product__column
+
+   &__column {
+      margin-bottom: rem(55);
+   }
+}
+.product-element {
+   @include space-between();
+   // .product-element__images
+   &__images {
+      flex-basis: rem(627);
+      position: relative;
+      padding: 0px 0px 32.5% 0px;
+      > img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         object-fit: cover;
+         object-position:  center center;
+         width: 100%;
+         height: 100%;
+      }
+
+   }
+
+   // .product-element__text
+
+   &__text {
+      flex-basis: rem(367);
+      margin-top: rem(-23);
+
+   }
+
+   // .product-element__title
+
+   &__title {
+      
+      margin: 0;
+   }
+
+   // .product-element__desc
+
+   &__desc {
+      margin: rem(30) 0 0;
+   }
+}
+.product__element--revers {
+    .product-element__images {
+       order: 2;
+    }
+    .product-element__text {
+       order: 1;
+       .product-element__title {
+          margin-top: rem(24);
+       }
+    }
+}
+.title-22 {
+   font-style: normal;
+      font-weight: bold;
+      font-size: rem(22);
+      line-height: rem(34);
+      letter-spacing: rem(-0.5);
+      color: $c-black;
+}
+
+
+@include mmax (1034){
+   .product {
+      margin-top: rem(40);
+      &__body {
+         padding: 0px rem(30);
+
+      }
+      .product-element__images {
+         flex-basis: rem(344);
+         height: rem(350);
+      }
+      .product-element__text {
+         flex-basis: calc(100% - (344px + 52px));
+      }
+      &__column {
+         margin-bottom: rem(30);
+      }
+   }
+   .product__element--revers {
+      .product-element__images {
+         order: 1;
+      }
+      .product-element__text {
+         order: 2;
+      }
+   }
+}
+@include mmax (720){
+   .product .product-element__images {
+      flex-basis: 100%;
+      height: auto;
+      padding: 0px 0px 60% 0px;
+   }
+   .product .product-element__text {
+      margin-top: rem(20);
+      flex-basis: 100%;
+   }
+   .product {
+      &__body {
+         padding: 0px 15px;
+      }
+   }
+}

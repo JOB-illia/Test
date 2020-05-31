@@ -1,0 +1,14 @@
+@import "./config/vendor";
+@import "./config/default-variables";
+@import "./config/variables";
+@import "./utils/functions";
+@import "./utils/mixins";
+@import "./config/local-utils";
+@import "./config/global";
+@import "./components/index";
+
+@import "./components/main-screen.scss";
+@import "./components/product.scss";
+
+
+

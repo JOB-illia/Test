@@ -1,0 +1,72 @@
+{% include "html/_document-header.html" %}
+
+<div class="workspace">
+   <div class="workspace__cont">
+
+      <div class="workspace__header">
+         {% include "html/header.html" %}
+      </div>
+      <main class="workspace__content">
+         <section class="main-screen">
+            <div class="main-screen__row">
+               <div class="main-screen__left">
+                  <p class="main-screen__get-started">GET STARTED WITHIN 2 MINUTES</p>
+                  <h1 class="title-30 main-screen__title">Learn How To Bake In
+                     5 Easy Steps</h1>
+                  <p class="text-def">No doubt, you need more one pot dinners in your life like this easy Bosnian-style chicken and rice. This recipe is made all over the world with countless variations on the theme.</p>
+               </div>
+               <form action="" class="main-screen__form form">
+                  <input class="form__input" type="text" name="name" placeholder="Your Name" required />
+                  <input class="form__input" type="email" name="email" placeholder="Your Email" required /> 
+                  <input class="form__input" type="tel" name="phone" placeholder="Phone" required /> 
+                  <button class="form__btn btn-def" type="submit">Download eBook Now</button>
+                  <span class="form__conditions">* We don’t share your personal info with anyone. 
+                     Check out our Policy for more information.</span>   
+               </form>
+            </div>
+            <div class="main-screen__bg">
+               <img src="img/bg.png" alt="background" class="bg">
+            </div>
+         </section>
+         <section class="product">
+            <div class="product__body">
+                  <div class="product__column product-element">
+                     <div class="product-element__images">
+                        <img src="img/image-1.jpg" alt="cake" />
+                     </div>
+                     <div class="product-element__text">
+                        <p class="product-element__title title-22">
+                          Do you know how to level a cake?
+                        </p>
+                        <p class="product-element__desc text-def">
+                           After years of cake successes and flops, I’m confident in this homemade vanilla cake. During my recipe testing, I combined my white cake recipe and naked cake recipe. These are two reader favorites and I knew they’d be the best starting point. 
+                        </p>
+                     </div>                
+                  </div> 
+                  <div class="product__column product-element product__element--revers">
+                     <div class="product-element__images">
+                        <img src="img/image-2.jpg" alt="cake2" />
+                     </div>
+                     <div class="product-element__text">
+                        <p class="product-element__title title-22">
+                           Vanilla Cake Success Tips
+                        </p>
+                        <p class="product-element__desc text-def">
+                           I always eyeball the amount of frosting between cake layers, but I measured when I decorated the pictured cake. The vanilla buttercream recipe below yields about 6 cups of frosting. I recommend you use about 1.5 heaping cups of buttercream between each cake layer and reserve the last 3 cups for outside the cake. 
+                        </p>
+                     </div>                
+
+                  </div>
+            </div>
+            
+         </section>
+      </main>
+      <div class="workspace__footer">
+         {% include "html/footer.html" %}
+      </div>
+
+
+   </div>
+</div>
+
+{% include "html/_document-footer.html" %}

@@ -1,0 +1,32 @@
+// Fonts
+$f-main: 'Open Sans', sans-serif;
+
+// Font sizes
+$fz-root: 15;
+
+//wrap content;
+$wrap-content: 1440px;
+$wrap-content-mini: 1095px;
+
+$md1: 1275 + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+// Colors
+$c-white: #ffffff;
+$c-black: #000000;
+$c-background-body: #e5e5e5;
+$c-blue-white: #E3F5F2;
+$c-gray: #999999;
+$c-text: #7A7A7A;
+$c-black-gray: #1C1C1C;
+$c-green: #0AD9C6;
+
+// Time
+$time-fast: 300ms;
+
+// Timing functions
+$timing-functions: (
+   "easeInOutCubic": cubic-bezier(0.645, 0.045, 0.355, 1),
+);
